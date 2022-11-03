@@ -19,12 +19,11 @@ func increase_balance{syscall_ptr: felt*, pedersen_ptr: HashBuiltin*, range_chec
     with_attr error_message("Amount must be positive. Got: {amount}.") {
         assert_nn(amount);
     }
+     // Call as admin
 
       let (owner) = Ownable.owner();
         let (caller) = get_caller_address();
-        with_attr error_message("Ownable: caller is the zero address") {
-            assert_not_zero(caller);
-        }
+       
         with_attr error_message("Ownable: caller is not the owner") {
             assert owner = caller;
         }
