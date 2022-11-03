@@ -51,7 +51,6 @@ func test_revert_attempt_to_increase_balance_with_non_owner_as_caller{
     %{ expect_revert("TRANSACTION_FAILED", "Ownable: caller is not the owner") %}
     increase_balance(5);
 
-
     // assign TEST_ACC2 as caller 
     %{ start_prank(ids.TEST_ACC2) %}
 
